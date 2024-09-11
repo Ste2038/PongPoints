@@ -7,8 +7,8 @@
 #include <WiFi.h>
 
 // Replace with your network credentials
-const char* ssid = "dlink";
-const char* password = "DaiCheCiSiLaurea";
+const char* ssid = "Slsed1000";
+const char* password = "slsed010407";
 
 // Set web server port number to 80
 WiFiServer server(80);
@@ -17,10 +17,10 @@ WiFiServer server(80);
 String header;
 
 // Assign output variables to GPIO pins
-const int player1plus = 12;
-const int player1minus = 13;
-const int player2plus = 4;
-const int player2minus = 15;
+const int player1plus = 14;
+const int player1minus = 27;
+const int player2plus = 12;
+const int player2minus = 13;
 
 // Current time
 unsigned long currentTime = millis();
@@ -88,7 +88,7 @@ void loop(){
             
             // Display the HTML web page
             client.println("<!DOCTYPE html><html>");
-            client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta http-equiv=\"refresh\" content=\"100\">");
+            client.println("<head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta http-equiv=\"refresh\" content=\"1\">");
             client.println("<link rel=\"icon\" href=\"data:,\">");
             // CSS to style the on/off buttons 
             // Feel free to change the background-color and font-size attributes to fit your preferences
@@ -131,19 +131,16 @@ void loop(){
 
   if (digitalRead(player1plus)){
     pointsA++;
-    delay(200);   
   }
   if (digitalRead(player1minus)){
     pointsA -=1;
-    delay(200);   
   }
   if (digitalRead(player2plus)){
-    pointsB++;
-    delay(200);   
+    pointsB++; 
   }
   if (digitalRead(player2minus)){
-    pointsB -=1;
-    delay(200);   
+    pointsB -=1;  
   }
+  delay(400); 
 
 }
